@@ -20,6 +20,15 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/motion_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/content">
+
+        <include layout="@layout/content_main" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,5 +1,18 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
-
+    <dimen name="large_padding">16dp</dimen>
     <dimen name="default_text_size">20sp</dimen>
+    <dimen name="stroke_width">2dp</dimen>
+    <dimen name="circle_radius">10dp</dimen>
+
+    <!--Dimension for Rectangle -->
+    <dimen name="clipRectRight">90dp</dimen>
+    <dimen name="clipRectLeft">0dp</dimen>
+    <dimen name="clipRectTop">0dp</dimen>
+    <dimen name="clipRectBottom">90dp</dimen>
+    <dimen name="rectInset">4dp</dimen>
+    <dimen name="cornerRadius">50dp</dimen>
+
+    <!-- Radio Button Dimensions -->
+    <dimen name="extra_large_padding">20dp</dimen>
 </resources>

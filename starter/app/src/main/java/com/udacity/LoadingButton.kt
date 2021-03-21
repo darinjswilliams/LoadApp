@@ -2,16 +2,18 @@ package com.udacity
 
 import android.animation.AnimatorSet
 import android.animation.ValueAnimator
+import android.app.NotificationManager
 import android.content.Context
-import android.graphics.*
-import android.text.TextPaint
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.LinearInterpolator
 import android.widget.Toast
-import androidx.annotation.ColorRes
-import androidx.core.content.ContextCompat
-import androidx.core.content.withStyledAttributes
+import androidx.core.content.ContextCompat.getSystemService
+import com.udacity.utils.sendNotification
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import kotlin.properties.Delegates
@@ -81,6 +83,11 @@ class LoadingButton @JvmOverloads constructor(
                 ).show()
 
             }
+
+            ButtonState.Completed -> {
+                Timber.i("Download is completed")
+            }
+
         }
     }
 
@@ -123,7 +130,6 @@ class LoadingButton @JvmOverloads constructor(
         heightSize = h
         setMeasuredDimension(w, h)
 
-        rectF
     }
 
     private fun drawCommonButtonFeatures(canvas: Canvas) {

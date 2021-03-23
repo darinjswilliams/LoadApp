@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var pendingIntent: PendingIntent
     private lateinit var action: NotificationCompat.Action
     private var URL: String = NO_RADIO_BUTTON_CLICKED
+    private lateinit var FILE_NAME  : String
 
 
     private lateinit var buttonState: ButtonState
@@ -58,6 +59,15 @@ class MainActivity : AppCompatActivity() {
                 R.id.retrofit -> URL_RETROFIT
                 else -> NO_RADIO_BUTTON_CLICKED
             }
+
+            FILE_NAME = when(radioGroup.checkedRadioButtonId){
+                R.id.glide -> getString(R.string.glide)
+                R.id.loadApp -> getString(R.string.loadApp)
+                R.id.retrofit -> getString(R.string.retrofit)
+                else -> NO_RADIO_BUTTON_CLICKED
+            }
+
+            Timber.i("HERE IS THE FILE NAME ${FILE_NAME}")
         }
 
         custom_button.setOnClickListener {
@@ -81,6 +91,7 @@ class MainActivity : AppCompatActivity() {
 
             val action = intent?.action
 
+
             if (downloadID == id) {
                 if (action.equals(DownloadManager.ACTION_DOWNLOAD_COMPLETE)) {
                     val query = DownloadManager.Query()
@@ -98,19 +109,19 @@ class MainActivity : AppCompatActivity() {
                             when (status) {
                                 DownloadManager.STATUS_SUCCESSFUL -> {
                                     notificationManager.sendNotification(
-                                        URL, applicationContext,
+                                        FILE_NAME, applicationContext,
                                         resources.getString(R.string.message_success)
                                     )
 
-                                    Timber.i("The status is Successful: ${status} ")
+                                    Timber.i("The status is Successful: ${status} plus ${FILE_NAME} ")
                                 }
                                 else -> {
                                     notificationManager.sendNotification(
-                                        URL,
+                                        FILE_NAME,
                                         applicationContext,
                                         resources.getString(R.string.message_failure)
                                     )
-                                    Timber.i("The status is Failure: ${status} ")
+                                    Timber.i("The status is Failure: ${status}  plus ${FILE_NAME} ")
                                 }
                             }
                         }

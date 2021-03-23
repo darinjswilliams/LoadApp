@@ -15,7 +15,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.udacity.utils.sendNotification
@@ -23,7 +22,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import timber.log.Timber
 import java.io.File
-import java.util.jar.Manifest
 
 
 class MainActivity : AppCompatActivity() {

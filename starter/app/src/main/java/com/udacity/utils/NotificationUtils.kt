@@ -34,15 +34,6 @@ fun NotificationManager.sendNotification(
     //Set Status and name of download file in Intent
     Timber.i("File Name ${messageBody}")
     Timber.i("Status of file ${downloadStatus}")
-//    contentIntent.putExtra(R.string.message_download, messageBody)
-//    contentIntent.putExtra(R.string.label_file_status, downloadStatus)
-
-//    //Create Pending Intent with the BackStack, The pendingintent will open the application
-//    val contentPendingIntent: PendingIntent? = TaskStackBuilder.create(applicationContext).run {
-//        // Add the intent, which inflates the back stack
-//        addNextIntentWithParentStack(contentIntent)
-//        getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
-//    }
 
     val contentPendingIntent = PendingIntent.getActivity(
         applicationContext,
@@ -59,7 +50,6 @@ fun NotificationManager.sendNotification(
 
     val bigPicStyle = NotificationCompat.BigPictureStyle()
         .bigLargeIcon(cloudImage)
-        .bigLargeIcon(null)
 
     //Build the notification
     val builder = NotificationCompat.Builder(

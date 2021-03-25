@@ -25,7 +25,7 @@ An application can display additional context and justification for a permission
 Screenshots
 -------------
 
-<img src="screenshots/screenshot-1.png" height="400" alt="Screenshot"/> 
+<img src="screenshots/screenshot_permission.png" height="400" alt="Screenshot"/> 
 
 
 ### Dependencies

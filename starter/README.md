@@ -26,6 +26,7 @@ Screenshots
 -------------
 
 <img src="screenshots/screenshot_permission.png" height="400" alt="Screenshot"/> 
+<img src="screenshots/Screenshot_1616652150.png" height="400" alt="Screenshot"/> 
 
 
 ### Dependencies

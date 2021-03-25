@@ -11,7 +11,7 @@ A notification will be sent once the download is complete. When a user clicks on
 
 ## Permission
 
-It shows how to use the new runtime permissions API to check and request permissions through the androidx.activity library.
+The application shows how to use the new runtime permissions API to check and request permissions through the androidx.activity library.
 Android 11 introduced new permissions behaviours, like "ask every time" option, and introduce a
 default method [`ActivityResultContracts.RequestPermission()`][2]. 
 The method take care of the main flows for the developer.

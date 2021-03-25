@@ -22,10 +22,11 @@ permissions (ActivityResultContracts.RequestPermission()) and handling the permi
 An application can display additional context and justification for a permission after calling
 [ActivityCompat#shouldShowRequestPermissionRationale(Activity, String)][4].
 
+Screenshots
+-------------
 
-## Getting Started
+<img src="screenshots/screenshot-1.png" height="400" alt="Screenshot"/> 
 
-Instructions for how to get a copy of the project running on your local machine.
 
 ### Dependencies
 
@@ -37,6 +38,9 @@ Instructions for how to get a copy of the project running on your local machine.
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation 'androidx.activity:activity-ktx:1.2.2'
+    implementation 'androidx.fragment:fragment-ktx:1.3.1'
 ```
 
 ### Installation

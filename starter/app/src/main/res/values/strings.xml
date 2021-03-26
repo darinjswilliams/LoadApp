@@ -39,7 +39,7 @@
     <string name="write_permission_denied">Write permission request was denied</string>
     <string name="write_permission_requested">Permission is not available Requesting Write External Storage permission</string>
     <string name="write_permission_required">Write External Storage permission is require to write files to external storage</string>
-    <string name="write_permission_not_available">Write External Storage Permission not avaliable. Requesting write external storage permission</string>
+    <string name="write_permission_not_available">Write External Storage Permission Not Available. Press OK to Request Permission</string>
 
 
 </resources>

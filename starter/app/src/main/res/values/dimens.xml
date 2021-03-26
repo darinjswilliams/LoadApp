@@ -14,5 +14,16 @@
     <dimen name="cornerRadius">50dp</dimen>
 
     <!-- Radio Button Dimensions -->
-    <dimen name="extra_large_padding">20dp</dimen>
+    <dimen name="extra_large_padding">6dp</dimen>
+    <dimen name="extra_small_padding">6dp</dimen>
+    
+    <!-- Circle Dimension -->
+    <dimen name="left">0.66</dimen>
+    <dimen name="right">0.2</dimen>
+    <dimen name="top">0.74</dimen>
+    <dimen name="bottom">0.8</dimen>
+    <dimen name="startAngle">0</dimen>
+
+    <!-- Duration -->
+    <dimen name="duration_two_seconds">2</dimen>
 </resources>

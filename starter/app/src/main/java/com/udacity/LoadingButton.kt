@@ -10,9 +10,11 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
 import android.widget.Toast
 import androidx.core.content.ContextCompat.getSystemService
+import com.google.android.material.snackbar.Snackbar
 import com.udacity.utils.sendNotification
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
@@ -96,7 +98,7 @@ class LoadingButton @JvmOverloads constructor(
         backGroundColor = Color.GREEN
         textColor = Color.WHITE
         accentColor = Color.YELLOW
-        defaultButtonColor = Color.CYAN
+        defaultButtonColor = R.color.blue
 
     }
 
@@ -164,6 +166,14 @@ class LoadingButton @JvmOverloads constructor(
         paint.color = accentColor
 
         //draw Arc
+        //left
+        //Top
+        //right
+        //bottom
+        //Start Angle
+        //Sweep Angle - dynamically generate
+        //Use Center
+
         canvas.drawArc(
             (widthSize * 0.66).toFloat(),
             (heightSize * 0.2).toFloat(),

@@ -1,6 +1,6 @@
 # LoadApp
 
-In this project students will create an app to download a file from Internet by clicking on a custom-built button where:
+In this project the application downloads a file from Internet by clicking on a custom-built button where:
  - width of the button gets animated from left to right;
  - text gets changed based on different states of the button;
  - circle gets be animated from 0 to 360 degrees
@@ -9,10 +9,25 @@ A notification will be sent once the download is complete. When a user clicks on
 
 [The final look of the app](https://gph.is/g/Zywmnre)
 
+## Permission
 
-## Getting Started
+The application shows how to use the new runtime permissions API to check and request permissions through the androidx.activity library.
+Android 11 introduced new permissions behaviours, like "ask every time" option, and introduce a
+default method [`ActivityResultContracts.RequestPermission()`][2]. 
+The method take care of the main flows for the developer.
+The application introduces the basic use of the runtime permissions API through the androidx library by
+verifying permissions [(ContextCompat#checkSelfPermission(Context, String))][3], requesting
+permissions (ActivityResultContracts.RequestPermission()) and handling the permission request callback 
+(androidx.activity.result.ActivityResultCaller.registerForActivityResult).
+An application can display additional context and justification for a permission after calling
+[ActivityCompat#shouldShowRequestPermissionRationale(Activity, String)][4].
 
-Instructions for how to get a copy of the project running on your local machine.
+Screenshots
+-------------
+
+<img src="screenshots/screenshot_permission.png" height="400" alt="Screenshot"/> 
+<img src="screenshots/Screenshot_1616652150.png" height="400" alt="Screenshot"/> 
+
 
 ### Dependencies
 
@@ -24,6 +39,9 @@ Instructions for how to get a copy of the project running on your local machine.
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation 'androidx.activity:activity-ktx:1.2.2'
+    implementation 'androidx.fragment:fragment-ktx:1.3.1'
 ```
 
 ### Installation
@@ -62,6 +80,12 @@ This section should contain all the student deliverables for this project.
 * [Kotlin](https://kotlinlang.org/) - Default language used to build this project
 
 Include all items used to build project.
+
+[1]: https://developer.android.com/reference/androidx/activity/result/ActivityResultCaller#registerForActivityResult(androidx.activity.result.contract.ActivityResultContract%3CI,%20O%3E,%20androidx.activity.result.ActivityResultCallback%3CO%3E)
+[2]: https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContracts.RequestPermission
+[3]: https://developer.android.com/reference/androidx/core/content/ContextCompat#checkSelfPermission(android.content.Context,%20java.lang.String)
+[4]: https://developer.android.com/reference/androidx/core/app/ActivityCompat#shouldShowRequestPermissionRationale(android.app.Activity,%20java.lang.String)
+
 
 ## License
 Please review the following [license agreement](https://bumptech.github.io/glide/dev/open-source-licenses.html)

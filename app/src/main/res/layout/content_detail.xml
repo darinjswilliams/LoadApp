@@ -4,69 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.motion.widget.MotionLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutDescription="@xml/content_detail_scene"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context=".DetailActivity"
-        tools:showIn="@layout/activity_detail">
+        tools:showIn="@layout/activity_detail"
+        app:layoutDescription="@xml/content_detail_scene">
 
         <TextView
             android:id="@+id/labelFileNameId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:paddingLeft="@dimen/small_padding"
+            android:paddingTop="@dimen/large_padding"
+            android:paddingRight="@dimen/small_padding"
             android:text="@string/label_file_name"
             android:textSize="@dimen/default_text_size"
-            app:layout_constraintBottom_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="File name:" />
 
         <TextView
             android:id="@+id/repoFileNameId"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:textColor="@color/colorPrimary"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:paddingStart="@dimen/medium_padding"
+            android:paddingTop="@dimen/large_padding"
+            android:paddingEnd="@dimen/small_padding"
             android:textSize="@dimen/default_text_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/labelFileNameId"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Glide - Image Loading Library by Bump Tech" />
+            tools:text="@string/glide" />
 
         <TextView
             android:id="@+id/labelStatusId"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="@dimen/medium_padding"
+            android:paddingTop="@dimen/large_padding"
+            android:paddingRight="@dimen/medium_padding"
             android:text="@string/label_file_status"
             android:textSize="@dimen/default_text_size"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/horiztonalguideline"
-            tools:text="Status:" />
+            app:layout_constraintTop_toTopOf="@+id/guideline" />
 
         <TextView
             android:id="@+id/repoStatusId"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:textColor="@color/colorPrimary"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="@dimen/medium_padding"
+            android:paddingTop="@dimen/large_padding"
+            android:paddingRight="@dimen/medium_padding"
             android:textSize="@dimen/default_text_size"
-            app:layout_constraintLeft_toLeftOf="@id/verticalGuideline"
-            app:layout_constraintTop_toBottomOf="@id/horiztonalguideline"
-            tools:text="Success" />
+            app:layout_constraintStart_toEndOf="@+id/labelStatusId"
+            app:layout_constraintTop_toTopOf="@+id/guideline"
+            tools:text="@string/message_success" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="183dp" />
+
 
         <Button
             android:id="@+id/buttonDetailActivity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="24dp"
             android:background="@color/colorAccent"
             android:text="@string/message_ok"
             android:textColor="@color/white"
@@ -76,21 +88,8 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Ok" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/verticalGuideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="125dp" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/horiztonalguideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="130dp" />
 
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
-
 </layout>

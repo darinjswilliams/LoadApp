@@ -30,7 +30,6 @@ class DetailActivity : AppCompatActivity() {
         setContentView(layout)
         setSupportActionBar(toolbar)
 
-
         //Dismiss Notification
         notificationManager = ContextCompat.getSystemService(
                 applicationContext,
@@ -41,7 +40,6 @@ class DetailActivity : AppCompatActivity() {
 
 
         Timber.i("Name from Intent${intent.getStringExtra(R.string.message_download.toString())} ")
-        //Set the file name
         layout.repoFileNameId.text = intent.getStringExtra(resources.getString(R.string.message_download))
         layout.repoStatusId.text = intent.getStringExtra(resources.getString(R.string.label_file_status))
 

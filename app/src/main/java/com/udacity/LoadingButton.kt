@@ -13,9 +13,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getSystemService
 import com.google.android.material.snackbar.Snackbar
 import com.udacity.utils.sendNotification
+import kotlinx.android.synthetic.main.content_main.view.*
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import kotlin.properties.Delegates
@@ -34,6 +36,25 @@ class LoadingButton @JvmOverloads constructor(
     private var textColor = 0
     private var defaultButtonColor = 0
     private var accentColor = 0
+
+    private var loadingDefaultBackgroundColor = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.FILL
+    }
+
+    private var loadingBackgroundColor = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.FILL
+    }
+
+    private var circleForegroundPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.FILL
+        color =  ContextCompat.getColor(context, R.color.yellow)
+    }
+
+    private var textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        isAntiAlias = true
+        style = Paint.Style.FILL
+        textSize = 40.0f
+    }
 
     private lateinit var rectF: RectF
 
@@ -95,10 +116,16 @@ class LoadingButton @JvmOverloads constructor(
 
     init {
 
-        backGroundColor = Color.GREEN
-        textColor = Color.WHITE
         accentColor = Color.YELLOW
-        defaultButtonColor = R.color.blue
+        defaultButtonColor = R.color.colorPrimary
+
+
+        context.theme.obtainStyledAttributes(attrs, R.styleable.LoadingButton, 0,0).apply {
+            loadingDefaultBackgroundColor.color = getColor(R.styleable.LoadingButton_loadingDefaultBackgroundColor, ContextCompat.getColor(context, R.color.blue))
+            loadingBackgroundColor.color = getColor(R.styleable.LoadingButton_loadingBackgroundColor, ContextCompat.getColor(context,R.color.deepOrange))
+            textPaint.color = getColor(R.styleable.LoadingButton_loadingTextColor, ContextCompat.getColor(context,R.color.white))
+            recycle()
+        }
 
     }
 
@@ -127,7 +154,7 @@ class LoadingButton @JvmOverloads constructor(
         //Returns the left padding of this view
         val minWidth: Int = paddingLeft + paddingRight + suggestedMinimumWidth
         val w: Int = resolveSizeAndState(minWidth, widthMeasureSpec, 1)
-        val h: Int = resolveSizeAndState(View.MeasureSpec.getSize(w), heightMeasureSpec, 0)
+        val h: Int = resolveSizeAndState(MeasureSpec.getSize(w), heightMeasureSpec, 0)
         widthSize = w
         heightSize = h
         setMeasuredDimension(w, h)
@@ -136,7 +163,7 @@ class LoadingButton @JvmOverloads constructor(
 
     private fun drawCommonButtonFeatures(canvas: Canvas) {
 
-        paint.color = defaultButtonColor
+        paint.color = loadingDefaultBackgroundColor.color
         canvas.drawRect(0f, 0f, widthSize.toFloat(), heightSize.toFloat(), paint)
 
         when (buttonState) {
@@ -156,14 +183,14 @@ class LoadingButton @JvmOverloads constructor(
 
     //LOADING_BUTTON_BACKGROUND
     private fun drawAnimatedBackground(canvas: Canvas) {
-        paint.color = backGroundColor
+        paint.color = loadingBackgroundColor.color
         canvas.drawRect(0f, 0f, computedAnimationValue * 3, heightSize.toFloat(), paint)
     }
 
 
     private fun drawSmallCircle(canvas: Canvas) {
 
-        paint.color = accentColor
+        paint.color = circleForegroundPaint.color
 
         //draw Arc
         //left
@@ -199,7 +226,7 @@ class LoadingButton @JvmOverloads constructor(
     //DRAW_TEXT_ON_BUTTONS
     private fun drawText(text: String, canvas: Canvas) {
 
-        paint.color = textColor
+       paint.color = textPaint.color
         canvas.drawText(
             text,
             (widthSize / 2).toFloat(),

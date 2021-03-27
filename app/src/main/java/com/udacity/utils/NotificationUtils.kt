@@ -18,7 +18,7 @@ private val NOTIFICATION_ID = 0
 /**
  * Builds and delivers the notification.
  *
- * @param context, activity context.
+ * @params messageBody, applicationContext, downloadStatus
  */
 fun NotificationManager.sendNotification(
     messageBody: String,
@@ -77,4 +77,8 @@ fun NotificationManager.sendNotification(
     Timber.i("Here is the status: ${downloadStatus}")
     //Call Nofity with unique id
     notify(NOTIFICATION_ID, builder.build())
+}
+
+fun NotificationManager.cancelNotification(){
+    cancelAll()
 }

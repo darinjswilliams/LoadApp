@@ -144,7 +144,7 @@ class MainActivity : AppCompatActivity() {
             if (downloadID == id) {
                 if (action.equals(DownloadManager.ACTION_DOWNLOAD_COMPLETE)) {
                     val query = DownloadManager.Query()
-                        .setFilterById(intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, 0));
+                        .setFilterById(intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, 0))
                     val manager =
                         context!!.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
                     val cursor: Cursor = manager.query(query)
@@ -267,6 +267,11 @@ class MainActivity : AppCompatActivity() {
                 requestPermissionLauncher.launch(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
             }
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        unregisterReceiver(receiver)
     }
 
     companion object {

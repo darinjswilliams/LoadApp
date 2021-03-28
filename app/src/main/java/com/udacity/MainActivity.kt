@@ -61,8 +61,9 @@ class MainActivity : AppCompatActivity() {
                 // app.
 
                 //Call Download
-                layout.showSnackbar(R.string.write_permission_granted, Snackbar.LENGTH_LONG
-                    , R.string.message_ok)
+                layout.showSnackbar(
+                    R.string.write_permission_granted, Snackbar.LENGTH_LONG, R.string.message_ok
+                )
                 {
                     download()
                 }
@@ -73,8 +74,9 @@ class MainActivity : AppCompatActivity() {
                 // same time, respect the user's decision. Don't link to system
                 // settings in an effort to convince the user to change their
                 // decision.
-                 layout.showSnackbar(R.string.write_permission_denied, Snackbar.LENGTH_LONG
-                     , R.string.message_ok)
+                layout.showSnackbar(
+                    R.string.write_permission_denied, Snackbar.LENGTH_LONG, R.string.message_ok
+                )
             }
         }
 
@@ -184,8 +186,12 @@ class MainActivity : AppCompatActivity() {
     private fun download() {
         Timber.i("Download file: ${URL}")
 
-        if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+            )
+            == PackageManager.PERMISSION_GRANTED
+        ) {
 
             //NotificationManager
             notificationManager = ContextCompat.getSystemService(
@@ -248,35 +254,45 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun requestWriteExternalStoragePermission(){
+    private fun requestWriteExternalStoragePermission() {
 
         // Provide an additional rationale to the user if the permission was not granted
         // and the user would benefit from additional context for the use of the permission.
         // Display a SnackBar with a button to request the missing permission.
-        if(shouldShowRequestPermissionRationale(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)){
-            layout.showSnackbar(R.string.write_permission_required, Snackbar.LENGTH_LONG
-                , R.string.message_ok)
+        if (shouldShowRequestPermissionRationale(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            layout.showSnackbar(
+                R.string.write_permission_required, Snackbar.LENGTH_LONG, R.string.message_ok
+            )
             {
                 requestPermissionLauncher.launch(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
             }
         } else {
             //Directly ask for Permission
-            layout.showSnackbar(R.string.write_permission_not_available, Snackbar.LENGTH_LONG
-                , R.string.message_ok)
+            layout.showSnackbar(
+                R.string.write_permission_not_available, Snackbar.LENGTH_LONG, R.string.message_ok
+            )
             {
                 requestPermissionLauncher.launch(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
             }
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        Timber.i("Register Receiver Again")
+        super.registerReceiver(receiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
+    }
+
     override fun onPause() {
         super.onPause()
+        Timber.i("Pause: Register Receiver")
         unregisterReceiver(receiver)
+
     }
 
     companion object {
-        private const val URL =
-            "https://github.com/udacity/nd940-c3-advanced-android-programming-project-starter/archive/master.zip"
+        //        private const val URL =
+//            "https://github.com/udacity/nd940-c3-advanced-android-programming-project-starter/archive/master.zip"
         private const val CHANNEL_ID = "channelId"
 
         private const val URL_GLIDE = "https://github.com/bumptech/glide"

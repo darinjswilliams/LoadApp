@@ -43,28 +43,25 @@
             android:id="@+id/labelStatusId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
             android:paddingLeft="@dimen/medium_padding"
             android:paddingTop="@dimen/large_padding"
             android:paddingRight="@dimen/medium_padding"
             android:text="@string/label_file_status"
             android:textSize="@dimen/default_text_size"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline" />
+            app:layout_constraintTop_toBottomOf="@+id/guideline" />
 
         <TextView
             android:id="@+id/repoStatusId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
-            android:layout_marginTop="16dp"
             android:paddingLeft="@dimen/medium_padding"
             android:paddingTop="@dimen/large_padding"
             android:paddingRight="@dimen/medium_padding"
             android:textSize="@dimen/default_text_size"
             app:layout_constraintStart_toEndOf="@+id/labelStatusId"
-            app:layout_constraintTop_toTopOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/guideline"
             tools:text="@string/message_success" />
 
         <androidx.constraintlayout.widget.Guideline

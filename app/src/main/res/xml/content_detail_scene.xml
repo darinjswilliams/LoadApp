@@ -7,47 +7,17 @@
             android:id="@+id/labelFileNameId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Constraint
-            android:id="@+id/repoFileNameId"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/labelFileNameId"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+             app:layout_constraintEnd_toEndOf="parent"
+             />
 
         <Constraint
             android:id="@+id/labelStatusId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline"/>
-
-
-        <Constraint
-            android:id="@+id/repoStatusId"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/labelStatusId"
-            app:layout_constraintTop_toTopOf="@+id/guideline" />
-
-
-        <Constraint
-            android:id="@+id/buttonDetailActivity"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-            <CustomAttribute
-                app:attributeName="loadingBackgroundColor"
-                app:customColorValue="@color/blue" />
-        </Constraint>
-
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </ConstraintSet>
+
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
@@ -58,40 +28,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
-            android:id="@+id/repoFileNameId"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/labelFileNameId"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Constraint
             android:id="@+id/labelStatusId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline"/>
+            app:layout_constraintTop_toBottomOf="@+id/guideline"/>
 
-
-        <Constraint
-            android:id="@+id/repoStatusId"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/labelStatusId"
-            app:layout_constraintTop_toTopOf="@+id/guideline" />
-
-
-        <Constraint
-            android:id="@+id/buttonDetailActivity"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-            <CustomAttribute
-                app:attributeName="loadingBackgroundColor"
-                app:customColorValue="@color/blue" />
-        </Constraint>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -106,6 +48,8 @@
         app:constraintSetEnd="@id/end"
         app:constraintSetStart="@+id/start"
         app:duration="2300"
+        app:autoTransition="animateToEnd"
         app:motionInterpolator="linear"
         />
+
 </MotionScene>
